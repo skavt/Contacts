@@ -34,13 +34,13 @@ class AppContactsAdapter(
         fun setContent(contactInfo: ContactInfo) {
             with(contactInfo) {
                 val random = Random()
+                val firstChar = name[0].toString()
                 val iconBackground: Drawable? =
                     AppCompatResources.getDrawable(itemView.context, R.drawable.circle)
                 val color: Int =
                     Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
                 iconBackground?.colorFilter = LightingColorFilter(color, color)
 
-                val firstChar = name[0].toString()
                 when {
                     adapterPosition != 0 && contacts[adapterPosition - 1].name[0] == name[0] ->
                         itemView.first_char.text = ""
