@@ -3,7 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".details.ContactDetailedActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_collapseMode="pin"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/profile_image"
@@ -15,6 +24,7 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="63sp"
+        android:text="A"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -27,6 +37,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:textColor="@color/darkGrey"
+        android:text="A Test Name"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profile_image"
@@ -37,12 +48,11 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTopttomOf="@+id/contact_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_name"
+        app:layout_constraintVertical_bias="0.042"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="230dp" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/phone_icon"
@@ -82,10 +92,9 @@
         android:textAlignment="center"
         android:textColor="@color/blue"
         app:drawableTopCompat="@drawable/bg_video"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintBottom_toTopOf="@+id/stroke_two"
         app:layout_constraintStart_toEndOf="@+id/message_icon"
-        app:layout_constraintTop_toBottomOf="@+id/stroke_one"
-        app:layout_constraintVertical_bias="0.478" />
+        app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
     <TextView
         android:id="@+id/email_icon"
@@ -97,7 +106,7 @@
         android:textAlignment="center"
         android:textColor="@color/blue"
         app:drawableTopCompat="@drawable/bg_email"
-        app:layout_constraintBottom_toBottomOf="@+id/stroke_two"
+        app:layout_constraintBottom_toTopOf="@+id/stroke_two"
         app:layout_constraintStart_toEndOf="@+id/video_icon"
         app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
@@ -106,21 +115,19 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/grey"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTopttomOf="@+id/contact_name"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="330dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stroke_one"
+        app:layout_constraintVertical_bias="0.208"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@+id/stroke_two">
+    <!--    <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_two">
 
-    </LinearLayout>
+        </LinearLayout>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

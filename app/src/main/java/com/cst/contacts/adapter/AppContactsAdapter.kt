@@ -1,16 +1,23 @@
 package com.cst.contacts.adapter
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.view.menu.MenuView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.cst.contacts.R
+import com.cst.contacts.details.ContactDetailedActivity
 import com.cst.contacts.donottouch.ContactInfo
+import kotlinx.android.synthetic.main.contact_item.*
 import kotlinx.android.synthetic.main.contact_item.view.*
+import kotlinx.android.synthetic.main.fragment_contacts.*
 import java.util.*
 
 
@@ -51,8 +58,11 @@ class AppContactsAdapter(
                 itemView.image.text = firstChar
                 itemView.image.background = iconBackground
 
-                itemView.setOnClickListener {
-
+                itemView.setOnClickListener() {
+                    itemView.context.startActivity(Intent(itemView.context, ContactDetailedActivity::class.java).apply {
+                        putExtra("position", name)
+                        putExtra("color", iconBackground.toString())
+                    })
                 }
             }
         }

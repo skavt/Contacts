@@ -5,4 +5,6 @@
     <string name="message">Text</string>
     <string name="video">Set up</string>
     <string name="email">email</string>
+    <string name="star">Star</string>
+    <string name="three_dots">Three Dots</string>
 </resources>
