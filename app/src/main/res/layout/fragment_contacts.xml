@@ -12,7 +12,6 @@
         android:layout_margin="10dp"
         android:background="@drawable/search_style"
         android:elevation="5dp"
-        android:fontFamily="sans-serif"
         android:hint="@string/search_contacts"
         android:inputType="text"
         android:paddingStart="60sp"

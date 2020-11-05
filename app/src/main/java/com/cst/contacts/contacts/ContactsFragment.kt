@@ -3,6 +3,9 @@ package com.cst.contacts.contacts
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -24,6 +27,19 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     private fun displayContacts(contacts: List<ContactInfo>) {
         contact_item.layoutManager = LinearLayoutManager(context)
         contact_item.adapter = AppContactsAdapter(contacts)
+
+        search.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {
+            }
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                Log.d("as", p0.toString())
+            }
+
+        })
     }
 
     /** ======== ამის ქვევით კოდს არ შეეხოთ ============= **/
