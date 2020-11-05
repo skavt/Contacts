@@ -6,10 +6,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.cst.contacts.R
+import com.cst.contacts.adapter.AppContactsAdapter
 import com.cst.contacts.donottouch.ContactInfo
 import com.cst.contacts.donottouch.mapToContactInfo
 import com.github.tamir7.contacts.Contacts
+import kotlinx.android.synthetic.main.fragment_contacts.*
 
 class ContactsFragment : Fragment(R.layout.fragment_contacts) {
 
@@ -19,7 +22,8 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     }
 
     private fun displayContacts(contacts: List<ContactInfo>) {
-        /** ==== თქვენი კოდი ==== **/
+        contact_item.layoutManager = LinearLayoutManager(context)
+        contact_item.adapter = AppContactsAdapter(contacts)
     }
 
     /** ======== ამის ქვევით კოდს არ შეეხოთ ============= **/
