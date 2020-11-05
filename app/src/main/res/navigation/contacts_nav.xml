@@ -9,5 +9,12 @@
         android:id="@+id/fragment_contacts"
         android:name="com.cst.contacts.contacts.ContactsFragment"
         tools:layout="@layout/fragment_contacts">
+        <action
+            android:id="@+id/contact_detailed_action"
+            app:destination="@id/contact_detailed" />
     </fragment>
+    <fragment
+        tools:layout="@layout/contact_detailed"
+        android:id="@+id/contact_detailed"
+        android:name="com.cst.contacts.details.ContactDetailedFragment" />
 </navigation>

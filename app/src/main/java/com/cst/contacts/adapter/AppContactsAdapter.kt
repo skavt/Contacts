@@ -50,7 +50,12 @@ class AppContactsAdapter(
                 itemView.name.text = name
                 itemView.image.text = firstChar
                 itemView.image.background = iconBackground
+
+                itemView.setOnClickListener {
+
+                }
             }
         }
+
     }
 }
