@@ -22,7 +22,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".details.ContactDetailedActivity" />
+        <activity
+            android:name=".details.ContactDetailedActivity"
+            android:parentActivityName=".contacts.ContactsActivity" />
     </application>
 
 </manifest>
