@@ -1,175 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".details.ContactDetailedActivity">
 
-    <com.google.android.material.appbar.CollapsingToolbarLayout
-        android:id="@+id/collapsing_toolbar"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_scrollFlags="scroll|exitUntilCollapsed">
+        android:layout_height="match_parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_collapseMode="pin" />
+            app:layout_collapseMode="pin"
+            tools:ignore="MissingConstraints" />
 
-    </com.google.android.material.appbar.CollapsingToolbarLayout>
+        <TextView
+            android:id="@+id/profile_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="start|center"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="63sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/darkGrey"
+            android:textSize="25sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <View
+            android:id="@+id/stroke_one"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_name" />
 
-            <TextView
-                android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="start|center"
-                android:layout_marginTop="60dp"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="63sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:id="@+id/phone_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_phone"
+            android:clickable="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
-            <TextView
-                android:id="@+id/contact_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/darkGrey"
-                android:textSize="25sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+        <TextView
+            android:id="@+id/phone_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/call"
+            app:layout_constraintEnd_toEndOf="@+id/phone_icon"
+            app:layout_constraintStart_toStartOf="@+id/phone_icon"
+            app:layout_constraintTop_toBottomOf="@+id/phone_icon" />
 
-            <View
-                android:id="@+id/stroke_one"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/grey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/contact_name" />
+        <ImageView
+            android:id="@+id/message_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_message"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/phone_icon"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
-            <ImageView
-                android:id="@+id/phone_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/ic_phone"
-                android:clickable="false"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+        <TextView
+            android:id="@+id/message_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/message"
+            app:layout_constraintEnd_toEndOf="@+id/message_icon"
+            app:layout_constraintStart_toStartOf="@+id/message_icon"
+            app:layout_constraintTop_toBottomOf="@+id/message_icon" />
 
-            <TextView
-                android:id="@+id/phone_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/call"
-                app:layout_constraintEnd_toEndOf="@+id/phone_icon"
-                app:layout_constraintStart_toStartOf="@+id/phone_icon"
-                app:layout_constraintTop_toBottomOf="@+id/phone_icon" />
+        <ImageView
+            android:id="@+id/video_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_video"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/message_icon"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
-            <ImageView
-                android:id="@+id/message_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/ic_message"
-                android:clickable="false"
-                app:layout_constraintStart_toEndOf="@+id/phone_icon"
-                app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+        <TextView
+            android:id="@+id/video_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/video"
+            app:layout_constraintEnd_toEndOf="@+id/video_icon"
+            app:layout_constraintStart_toStartOf="@+id/video_icon"
+            app:layout_constraintTop_toBottomOf="@+id/video_icon" />
 
-            <TextView
-                android:id="@+id/message_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/message"
-                app:layout_constraintEnd_toEndOf="@+id/message_icon"
-                app:layout_constraintStart_toStartOf="@+id/message_icon"
-                app:layout_constraintTop_toBottomOf="@+id/message_icon" />
+        <ImageView
+            android:id="@+id/email_icon"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/ic_email"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/video_icon"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
-            <ImageView
-                android:id="@+id/video_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/ic_video"
-                android:clickable="false"
-                app:layout_constraintStart_toEndOf="@+id/message_icon"
-                app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+        <TextView
+            android:id="@+id/email_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            app:layout_constraintEnd_toEndOf="@+id/email_icon"
+            app:layout_constraintStart_toStartOf="@+id/email_icon"
+            app:layout_constraintTop_toBottomOf="@+id/email_icon" />
 
-            <TextView
-                android:id="@+id/video_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/video"
-                app:layout_constraintEnd_toEndOf="@+id/video_icon"
-                app:layout_constraintStart_toStartOf="@+id/video_icon"
-                app:layout_constraintTop_toBottomOf="@+id/video_icon" />
+        <View
+            android:id="@+id/stroke_two"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_text" />
 
-            <ImageView
-                android:id="@+id/email_icon"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_marginStart="55dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/ic_email"
-                android:clickable="false"
-                app:layout_constraintStart_toEndOf="@+id/video_icon"
-                app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/stroke_two">
 
-            <TextView
-                android:id="@+id/email_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/email"
-                app:layout_constraintEnd_toEndOf="@+id/email_icon"
-                app:layout_constraintStart_toStartOf="@+id/email_icon"
-                app:layout_constraintTop_toBottomOf="@+id/email_icon" />
-
-            <View
-                android:id="@+id/stroke_two"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="20dp"
-                android:background="@color/grey"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_text" />
-
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/detailed_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@+id/stroke_two">
+                android:layout_marginTop="10dp"
+                android:orientation="vertical" />
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/detailed_info"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical" />
+        </LinearLayout>
 
-            </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.core.widget.NestedScrollView>
