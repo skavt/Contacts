@@ -1,10 +1,16 @@
 package com.cst.contacts.details
 
+import android.graphics.LightingColorFilter
+import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import com.cst.contacts.R
+import com.cst.contacts.donottouch.ContactInfo
+import com.cst.contacts.donottouch.mapToContactInfo
+import com.github.tamir7.contacts.Contact
+import com.github.tamir7.contacts.Contacts
 import kotlinx.android.synthetic.main.contact_detailed.*
 
 /**
@@ -21,9 +27,23 @@ class ContactDetailedActivity : AppCompatActivity() {
         toolbar.title = ""
         setSupportActionBar(toolbar)
 
-        Log.d("lala", intent.getStringExtra("position").toString())
-        Log.d("ooo", intent.getStringExtra("color").toString())
+        val contactData = getContactById(intent.getStringExtra("contact_id").toString())
+        val color = intent.getStringExtra("color").toString().toInt()
+        val iconBackground: Drawable? =
+            AppCompatResources.getDrawable(this, R.drawable.circle)
+        iconBackground?.colorFilter = LightingColorFilter(color, color)
 
+        if (contactData != null) {
+            contact_name.text = contactData.name
+            profile_image.text = contactData.name[0].toString()
+        }
+        profile_image.background = iconBackground
+
+    }
+
+    private fun getContactById(id: String): ContactInfo? {
+        return Contacts.getQuery().whereEqualTo(Contact.Field.ContactId, id)
+            .find().firstOrNull()?.mapToContactInfo()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

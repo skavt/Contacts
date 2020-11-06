@@ -56,8 +56,8 @@ class AppContactsAdapter(
                 itemView.setOnClickListener() {
                     itemView.context.startActivity(Intent(itemView.context,
                         ContactDetailedActivity::class.java).apply {
-                        putExtra("position", adapterPosition.toString())
-                        putExtra("color", randomColor)
+                        putExtra("contact_id", contacts[adapterPosition].id.toString())
+                        putExtra("color", randomColor.toString())
                     })
                 }
             }
