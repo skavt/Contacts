@@ -4,20 +4,15 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.appcompat.view.menu.MenuView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.cst.contacts.R
 import com.cst.contacts.details.ContactDetailedActivity
 import com.cst.contacts.donottouch.ContactInfo
-import kotlinx.android.synthetic.main.contact_item.*
 import kotlinx.android.synthetic.main.contact_item.view.*
-import kotlinx.android.synthetic.main.fragment_contacts.*
 import java.util.*
 
 
@@ -44,9 +39,9 @@ class AppContactsAdapter(
                 val firstChar = name[0].toString()
                 val iconBackground: Drawable? =
                     AppCompatResources.getDrawable(itemView.context, R.drawable.circle)
-                val color: Int =
+                val randomColor: Int =
                     Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
-                iconBackground?.colorFilter = LightingColorFilter(color, color)
+                iconBackground?.colorFilter = LightingColorFilter(randomColor, randomColor)
 
                 when {
                     adapterPosition != 0 && contacts[adapterPosition - 1].name[0] == name[0] ->
@@ -59,9 +54,10 @@ class AppContactsAdapter(
                 itemView.image.background = iconBackground
 
                 itemView.setOnClickListener() {
-                    itemView.context.startActivity(Intent(itemView.context, ContactDetailedActivity::class.java).apply {
-                        putExtra("position", name)
-                        putExtra("color", iconBackground.toString())
+                    itemView.context.startActivity(Intent(itemView.context,
+                        ContactDetailedActivity::class.java).apply {
+                        putExtra("position", adapterPosition.toString())
+                        putExtra("color", randomColor)
                     })
                 }
             }

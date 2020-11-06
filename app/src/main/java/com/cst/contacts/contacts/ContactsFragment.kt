@@ -15,8 +15,12 @@ import com.cst.contacts.donottouch.ContactInfo
 import com.cst.contacts.donottouch.mapToContactInfo
 import com.github.tamir7.contacts.Contacts
 import kotlinx.android.synthetic.main.fragment_contacts.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class ContactsFragment : Fragment(R.layout.fragment_contacts) {
+
+    private var listOfContacts = ArrayList<ContactInfo>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -24,21 +28,35 @@ class ContactsFragment : Fragment(R.layout.fragment_contacts) {
     }
 
     private fun displayContacts(contacts: List<ContactInfo>) {
+        listOfContacts.clear()
         contact_item.layoutManager = LinearLayoutManager(context)
-        contact_item.adapter = AppContactsAdapter(contacts)
+        contact_item.adapter = AppContactsAdapter(listOfContacts)
+        listOfContacts.addAll(contacts)
+        (contact_item.adapter as AppContactsAdapter).notifyDataSetChanged()
 
         search.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(p0: Editable?) {
-            }
+            override fun afterTextChanged(p0: Editable?) {}
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-//                Log.d("as", p0.toString())
+                listOfContacts.clear()
+                listOfContacts.addAll(contacts.search(p0.toString()))
+                (contact_item.adapter as AppContactsAdapter).notifyDataSetChanged()
             }
 
         })
+    }
+
+    fun List<ContactInfo>.search(nameChars: String): List<ContactInfo> {
+        val list = ArrayList<ContactInfo>()
+        forEach {
+            when {
+                it.name.toLowerCase(Locale.ROOT)
+                    .contains(nameChars.toLowerCase(Locale.ROOT)) -> list.add(it)
+            }
+        }
+        return list
     }
 
     /** ======== ამის ქვევით კოდს არ შეეხოთ ============= **/
