@@ -20,14 +20,12 @@
         android:layout_height="100dp"
         android:layout_gravity="start|center"
         android:layout_marginTop="60dp"
-        android:background="@drawable/circle"
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="63sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="A" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         android:id="@+id/contact_name"
@@ -38,8 +36,7 @@
         android:textColor="@color/darkGrey"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"
-        tools:text="A Test Name" />
+        app:layout_constraintTop_toBottomOf="@+id/profile_image"/>
 
     <View
         android:id="@+id/stroke_one"
@@ -118,14 +115,20 @@
         app:layout_constraintVertical_bias="0.208"
         tools:layout_editor_absoluteX="0dp" />
 
-    <!--    <LinearLayout
-            android:id="@+id/linearLayout"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/stroke_two">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/detailed_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/stroke_two">
+            android:layout_marginTop="10dp"
+            android:orientation="vertical" />
 
-        </LinearLayout>-->
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
