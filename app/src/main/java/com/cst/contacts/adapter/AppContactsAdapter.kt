@@ -40,7 +40,9 @@ class AppContactsAdapter(
                 val iconBackground: Drawable? =
                     AppCompatResources.getDrawable(itemView.context, R.drawable.circle)
                 val randomColor: Int =
-                    Color.argb(255, random.nextInt(256), random.nextInt(256), random.nextInt(256))
+                    Color.argb(180, random.nextInt(180),
+                        random.nextInt(180),
+                        random.nextInt(180))
                 iconBackground?.colorFilter = LightingColorFilter(randomColor, randomColor)
 
                 when {

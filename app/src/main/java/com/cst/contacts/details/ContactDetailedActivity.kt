@@ -4,6 +4,7 @@ import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import com.cst.contacts.R
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.contact_detailed.*
  * რომელიც თავის მხრივ გადააწვდის ამ ID-ს ფრაგმენტს
  */
 class ContactDetailedActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.contact_detailed)
@@ -26,6 +28,20 @@ class ContactDetailedActivity : AppCompatActivity() {
         toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
         toolbar.title = ""
         setSupportActionBar(toolbar)
+
+        // Not working fix it
+        phone_icon.setOnClickListener {
+            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
+        }
+        message_icon.setOnClickListener {
+            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
+        }
+        video_icon.setOnClickListener {
+            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
+        }
+        email_icon.setOnClickListener {
+            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
+        }
 
         val contactData = getContactById(intent.getStringExtra("contact_id").toString())
         val color = intent.getStringExtra("color").toString().toInt()
@@ -50,4 +66,5 @@ class ContactDetailedActivity : AppCompatActivity() {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
+
 }
