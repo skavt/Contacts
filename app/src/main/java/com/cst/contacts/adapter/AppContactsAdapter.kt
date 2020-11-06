@@ -28,7 +28,7 @@ class AppContactsAdapter(
     )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setContent((contacts[position]))
+        holder.setContent(contacts[position])
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
