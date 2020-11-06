@@ -1,14 +1,14 @@
 package com.cst.contacts.details
 
 import android.annotation.SuppressLint
-import android.graphics.LightingColorFilter
-import android.graphics.drawable.Drawable
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cst.contacts.R
 import com.cst.contacts.adapter.AppContactDetailedAdapter
@@ -27,6 +27,8 @@ import kotlinx.android.synthetic.main.contact_detailed.*
  */
 class ContactDetailedActivity : AppCompatActivity() {
 
+    private val colorBlue = 0xFF1A73E8.toInt()
+
     @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,9 +46,9 @@ class ContactDetailedActivity : AppCompatActivity() {
 
         val contactData = getContactById(intent.getStringExtra("contact_id").toString())
         val color = intent.getStringExtra("color").toString().toInt()
-        val iconBackground: Drawable? =
-            AppCompatResources.getDrawable(this, R.drawable.circle)
-        iconBackground?.colorFilter = LightingColorFilter(color, color)
+
+        val iconBackground = ContextCompat.getDrawable(this, R.drawable.circle)
+        iconBackground!!.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.SRC_IN)
 
         profile_image.background = iconBackground
 
@@ -59,9 +61,13 @@ class ContactDetailedActivity : AppCompatActivity() {
                 message_icon.isEnabled = true
                 video_icon.isEnabled = true
 
-                phone_text.setOnClickListener {
+                phone_icon.setOnClickListener {
                     Toast.makeText(this, phone_text.text, Toast.LENGTH_SHORT).show()
                 }
+                val emailIconBackground = ContextCompat.getDrawable(this, R.drawable.ic_phone)
+                emailIconBackground!!.colorFilter = PorterDuffColorFilter(colorBlue, PorterDuff.Mode.MULTIPLY)
+                phone_icon.background = emailIconBackground
+
                 message_icon.setOnClickListener {
                     Toast.makeText(this, message_text.text, Toast.LENGTH_SHORT).show()
                 }
@@ -75,9 +81,6 @@ class ContactDetailedActivity : AppCompatActivity() {
                 email_icon.setOnClickListener {
                     Toast.makeText(this, email_text.text, Toast.LENGTH_SHORT).show()
                 }
-                /*val unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.bg_email)
-                val wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable!!)
-                DrawableCompat.setTint(wrappedDrawable, R.color.darkGrey)*/
             }
         }
 

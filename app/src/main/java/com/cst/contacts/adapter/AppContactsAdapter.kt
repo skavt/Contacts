@@ -2,12 +2,12 @@ package com.cst.contacts.adapter
 
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.LightingColorFilter
-import android.graphics.drawable.Drawable
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.cst.contacts.R
 import com.cst.contacts.details.ContactDetailedActivity
@@ -37,13 +37,13 @@ class AppContactsAdapter(
             with(contactInfo) {
                 val random = Random()
                 val firstChar = name[0].toString()
-                val iconBackground: Drawable? =
-                    AppCompatResources.getDrawable(itemView.context, R.drawable.circle)
+                val iconBackground = ContextCompat.getDrawable(itemView.context, R.drawable.circle)
                 val randomColor: Int =
-                    Color.argb(180, random.nextInt(180),
-                        random.nextInt(180),
-                        random.nextInt(180))
-                iconBackground?.colorFilter = LightingColorFilter(randomColor, randomColor)
+                    Color.argb(255, random.nextInt(256),
+                        random.nextInt(256),
+                        random.nextInt(256))
+                iconBackground!!.colorFilter =
+                    PorterDuffColorFilter(randomColor, PorterDuff.Mode.SRC_IN)
 
                 when {
                     adapterPosition != 0 && contacts[adapterPosition - 1].name[0] == name[0] ->
