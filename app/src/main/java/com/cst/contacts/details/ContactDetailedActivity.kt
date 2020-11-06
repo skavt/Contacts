@@ -3,6 +3,7 @@ package com.cst.contacts.details
 import android.annotation.SuppressLint
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -64,16 +65,20 @@ class ContactDetailedActivity : AppCompatActivity() {
                 phone_icon.setOnClickListener {
                     Toast.makeText(this, phone_text.text, Toast.LENGTH_SHORT).show()
                 }
-                val emailIconBackground = ContextCompat.getDrawable(this, R.drawable.ic_phone)
-                emailIconBackground!!.colorFilter = PorterDuffColorFilter(colorBlue, PorterDuff.Mode.MULTIPLY)
-                phone_icon.background = emailIconBackground
+                phone_icon.background = setIconColor(R.drawable.ic_phone, colorBlue)
+                phone_text.setTextColor(ContextCompat.getColor(this, R.color.blue));
 
                 message_icon.setOnClickListener {
                     Toast.makeText(this, message_text.text, Toast.LENGTH_SHORT).show()
                 }
+                message_icon.background = setIconColor(R.drawable.ic_message, colorBlue)
+                message_text.setTextColor(ContextCompat.getColor(this, R.color.blue));
+
                 video_icon.setOnClickListener {
                     Toast.makeText(this, video_text.text, Toast.LENGTH_SHORT).show()
                 }
+                video_icon.background = setIconColor(R.drawable.ic_video, colorBlue)
+                video_text.setTextColor(ContextCompat.getColor(this, R.color.blue));
             }
             if (contactData.emails.isNotEmpty()) {
                 email_icon.isEnabled = true
@@ -81,6 +86,8 @@ class ContactDetailedActivity : AppCompatActivity() {
                 email_icon.setOnClickListener {
                     Toast.makeText(this, email_text.text, Toast.LENGTH_SHORT).show()
                 }
+                email_icon.background = setIconColor(R.drawable.ic_email, colorBlue)
+                email_text.setTextColor(ContextCompat.getColor(this, R.color.blue));
             }
         }
 
@@ -93,6 +100,12 @@ class ContactDetailedActivity : AppCompatActivity() {
     private fun getContactById(id: String): ContactInfo? {
         return Contacts.getQuery().whereEqualTo(Contact.Field.ContactId, id)
             .find().firstOrNull()?.mapToContactInfo()
+    }
+
+    private fun setIconColor(drawable: Int, color: Int): Drawable? {
+        val iconBackground = ContextCompat.getDrawable(this, drawable)
+        iconBackground!!.colorFilter = PorterDuffColorFilter(color, PorterDuff.Mode.MULTIPLY)
+        return iconBackground
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
