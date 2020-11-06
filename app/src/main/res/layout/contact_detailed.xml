@@ -25,7 +25,7 @@
         android:textSize="63sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/contact_name"
@@ -36,86 +36,110 @@
         android:textColor="@color/darkGrey"
         android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image"/>
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
     <View
         android:id="@+id/stroke_one"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="20dp"
         android:background="@color/grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contact_name"
-        app:layout_constraintVertical_bias="0.042"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contact_name"/>
 
-    <TextView
+    <ImageView
         android:id="@+id/phone_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:drawableTint="@color/blue"
-        android:text="@string/call"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        app:drawableTopCompat="@drawable/bg_phone"
-        app:layout_constraintBottom_toTopOf="@+id/stroke_two"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_phone"
+        android:clickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
     <TextView
-        android:id="@+id/message_icon"
+        android:id="@+id/phone_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:drawableTint="@color/blue"
-        android:text="@string/message"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        app:drawableTopCompat="@drawable/bg_message"
-        app:layout_constraintBottom_toTopOf="@+id/stroke_two"
+        android:text="@string/call"
+        app:layout_constraintEnd_toEndOf="@+id/phone_icon"
+        app:layout_constraintStart_toStartOf="@+id/phone_icon"
+        app:layout_constraintTop_toBottomOf="@+id/phone_icon" />
+
+    <ImageView
+        android:id="@+id/message_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_message"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@+id/phone_icon"
         app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
     <TextView
-        android:id="@+id/video_icon"
+        android:id="@+id/message_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:drawableTint="@color/blue"
-        android:text="@string/video"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        app:drawableTopCompat="@drawable/bg_video"
-        app:layout_constraintBottom_toTopOf="@+id/stroke_two"
+        android:text="@string/message"
+        app:layout_constraintEnd_toEndOf="@+id/message_icon"
+        app:layout_constraintStart_toStartOf="@+id/message_icon"
+        app:layout_constraintTop_toBottomOf="@+id/message_icon" />
+
+    <ImageView
+        android:id="@+id/video_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_video"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@+id/message_icon"
         app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
 
     <TextView
-        android:id="@+id/email_icon"
+        android:id="@+id/video_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="50dp"
-        android:drawableTint="@color/blue"
-        android:text="@string/email"
-        android:textAlignment="center"
-        android:textColor="@color/blue"
-        app:drawableTopCompat="@drawable/bg_email"
-        app:layout_constraintBottom_toTopOf="@+id/stroke_two"
+        android:text="@string/video"
+        app:layout_constraintEnd_toEndOf="@+id/video_icon"
+        app:layout_constraintStart_toStartOf="@+id/video_icon"
+        app:layout_constraintTop_toBottomOf="@+id/video_icon" />
+
+    <ImageView
+        android:id="@+id/email_icon"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/ic_email"
+        android:clickable="false"
         app:layout_constraintStart_toEndOf="@+id/video_icon"
         app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        app:layout_constraintEnd_toEndOf="@+id/email_icon"
+        app:layout_constraintStart_toStartOf="@+id/email_icon"
+        app:layout_constraintTop_toBottomOf="@+id/email_icon" />
 
     <View
         android:id="@+id/stroke_two"
         android:layout_width="match_parent"
         android:layout_height="1dp"
+        android:layout_marginTop="20dp"
         android:background="@color/grey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/stroke_one"
-        app:layout_constraintVertical_bias="0.208"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone_text" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"

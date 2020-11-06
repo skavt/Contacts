@@ -9,7 +9,6 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
-import androidx.core.graphics.drawable.DrawableCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.cst.contacts.R
 import com.cst.contacts.adapter.AppContactDetailedAdapter
@@ -60,21 +59,21 @@ class ContactDetailedActivity : AppCompatActivity() {
                 message_icon.isEnabled = true
                 video_icon.isEnabled = true
 
-                phone_icon.setOnClickListener {
-                    Toast.makeText(this, phone_icon.text, Toast.LENGTH_SHORT).show()
+                phone_text.setOnClickListener {
+                    Toast.makeText(this, phone_text.text, Toast.LENGTH_SHORT).show()
                 }
                 message_icon.setOnClickListener {
-                    Toast.makeText(this, message_icon.text, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, message_text.text, Toast.LENGTH_SHORT).show()
                 }
                 video_icon.setOnClickListener {
-                    Toast.makeText(this, video_icon.text, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, video_text.text, Toast.LENGTH_SHORT).show()
                 }
             }
             if (contactData.emails.isNotEmpty()) {
                 email_icon.isEnabled = true
 
                 email_icon.setOnClickListener {
-                    Toast.makeText(this, email_icon.text, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, email_text.text, Toast.LENGTH_SHORT).show()
                 }
                 /*val unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.bg_email)
                 val wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable!!)
