@@ -5,6 +5,7 @@ import android.graphics.LightingColorFilter
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -37,20 +38,6 @@ class ContactDetailedActivity : AppCompatActivity() {
         toolbar.title = ""
         setSupportActionBar(toolbar)
 
-        // Not working fix it
-        phone_icon.setOnClickListener {
-            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
-        }
-        message_icon.setOnClickListener {
-            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
-        }
-        video_icon.setOnClickListener {
-            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
-        }
-        email_icon.setOnClickListener {
-            Toast.makeText(this, "text", Toast.LENGTH_SHORT).show()
-        }
-
         phone_icon.isEnabled = false
         message_icon.isEnabled = false
         video_icon.isEnabled = false
@@ -72,12 +59,26 @@ class ContactDetailedActivity : AppCompatActivity() {
                 phone_icon.isEnabled = true
                 message_icon.isEnabled = true
                 video_icon.isEnabled = true
+
+                phone_icon.setOnClickListener {
+                    Toast.makeText(this, phone_icon.text, Toast.LENGTH_SHORT).show()
+                }
+                message_icon.setOnClickListener {
+                    Toast.makeText(this, message_icon.text, Toast.LENGTH_SHORT).show()
+                }
+                video_icon.setOnClickListener {
+                    Toast.makeText(this, video_icon.text, Toast.LENGTH_SHORT).show()
+                }
             }
             if (contactData.emails.isNotEmpty()) {
                 email_icon.isEnabled = true
-                val unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.bg_email)
+
+                email_icon.setOnClickListener {
+                    Toast.makeText(this, email_icon.text, Toast.LENGTH_SHORT).show()
+                }
+                /*val unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.bg_email)
                 val wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable!!)
-                DrawableCompat.setTint(wrappedDrawable, R.color.darkGrey)
+                DrawableCompat.setTint(wrappedDrawable, R.color.darkGrey)*/
             }
         }
 
@@ -94,6 +95,15 @@ class ContactDetailedActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.star -> Toast.makeText(this, R.string.star, Toast.LENGTH_SHORT).show()
+            R.id.dots -> Toast.makeText(this, R.string.three_dots, Toast.LENGTH_SHORT).show()
+            else -> return super.onOptionsItemSelected(item)
+        }
         return true
     }
 
