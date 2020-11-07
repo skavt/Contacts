@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginStart="60dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="10dp"
         android:background="@color/grey"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/main_text"
@@ -19,8 +19,8 @@
 
     <ImageView
         android:id="@+id/left_icon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
         android:id="@+id/main_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/left_icon"
@@ -41,14 +41,14 @@
         android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@+id/left_icon"
         app:layout_constraintTop_toBottomOf="@+id/main_text" />
 
     <ImageView
         android:id="@+id/right_icon"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
         android:layout_margin="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

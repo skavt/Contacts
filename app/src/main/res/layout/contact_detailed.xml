@@ -37,6 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginTop="20dp"
+            android:ellipsize="end"
+            android:maxLines="1"
             android:textColor="@color/darkGrey"
             android:textSize="25sp"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,9 +56,9 @@
 
         <ImageView
             android:id="@+id/phone_icon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="55dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_phone"
             android:clickable="false"
@@ -74,9 +76,9 @@
 
         <ImageView
             android:id="@+id/message_icon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="55dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_message"
             android:clickable="false"
@@ -94,9 +96,9 @@
 
         <ImageView
             android:id="@+id/video_icon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="55dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_video"
             android:clickable="false"
@@ -114,9 +116,9 @@
 
         <ImageView
             android:id="@+id/email_icon"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginStart="55dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="60dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/ic_email"
             android:clickable="false"
