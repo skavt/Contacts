@@ -43,7 +43,7 @@
             app:layout_constraintTop_toBottomOf="@+id/profile_image" />
 
         <View
-            android:id="@+id/stroke_one"
+            android:id="@+id/line_one"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="20dp"
@@ -61,7 +61,7 @@
             android:background="@drawable/ic_phone"
             android:clickable="false"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+            app:layout_constraintTop_toBottomOf="@+id/line_one" />
 
         <TextView
             android:id="@+id/phone_text"
@@ -81,7 +81,7 @@
             android:background="@drawable/ic_message"
             android:clickable="false"
             app:layout_constraintStart_toEndOf="@+id/phone_icon"
-            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+            app:layout_constraintTop_toBottomOf="@+id/line_one" />
 
         <TextView
             android:id="@+id/message_text"
@@ -101,7 +101,7 @@
             android:background="@drawable/ic_video"
             android:clickable="false"
             app:layout_constraintStart_toEndOf="@+id/message_icon"
-            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+            app:layout_constraintTop_toBottomOf="@+id/line_one" />
 
         <TextView
             android:id="@+id/video_text"
@@ -121,7 +121,7 @@
             android:background="@drawable/ic_email"
             android:clickable="false"
             app:layout_constraintStart_toEndOf="@+id/video_icon"
-            app:layout_constraintTop_toBottomOf="@+id/stroke_one" />
+            app:layout_constraintTop_toBottomOf="@+id/line_one" />
 
         <TextView
             android:id="@+id/email_text"
@@ -133,7 +133,7 @@
             app:layout_constraintTop_toBottomOf="@+id/email_icon" />
 
         <View
-            android:id="@+id/stroke_two"
+            android:id="@+id/line_two"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="20dp"
@@ -147,7 +147,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@+id/stroke_two">
+            app:layout_constraintTop_toBottomOf="@+id/line_two">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/detailed_info"

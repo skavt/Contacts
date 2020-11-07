@@ -1,15 +1,19 @@
 package com.cst.contacts.adapter
 
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.cst.contacts.R
 import com.cst.contacts.donottouch.Email
 import com.cst.contacts.donottouch.PhoneNumber
 import kotlinx.android.synthetic.main.contact_detailed_item.view.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 class AppContactDetailedAdapter(
     private val numberList: ArrayList<PhoneNumber>,
@@ -33,19 +37,57 @@ class AppContactDetailedAdapter(
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private lateinit var phoneNumber: PhoneNumber
         private lateinit var email: Email
+        private val colorBlue = 0xFF1A73E8.toInt()
 
         fun setContent() {
+            val iconBackground = ContextCompat.getDrawable(itemView.context, R.drawable.ic_message)
+            iconBackground!!.colorFilter =
+                PorterDuffColorFilter(colorBlue, PorterDuff.Mode.MULTIPLY)
+
             if (adapterPosition < numberList.size) {
                 phoneNumber = numberList[adapterPosition]
 
                 itemView.main_text.text = phoneNumber.number
                 itemView.type.text = capitalize(phoneNumber.type.toString())
+
+                itemView.right_icon.apply {
+                    setOnClickListener {
+                        Toast.makeText(itemView.context, "Message", Toast.LENGTH_SHORT).show()
+                    }
+                    background = iconBackground
+                }
+
+                when (adapterPosition) {
+                    0 -> itemView.left_icon.apply {
+                        setOnClickListener {
+                            Toast.makeText(context, "Call", Toast.LENGTH_SHORT).show()
+                        }
+
+                        background = ContextCompat.getDrawable(context, R.drawable.ic_phone)
+                    }
+                }
             } else {
                 email = emailList[adapterPosition - numberList.size]
 
                 itemView.main_text.text = email.address
                 itemView.type.text = capitalize(email.type.toString())
+
+                when (adapterPosition) {
+                    numberList.size -> {
+                        itemView.left_icon.apply {
+                            setOnClickListener {
+                                Toast.makeText(context, "Email", Toast.LENGTH_SHORT).show()
+                            }
+                            background =
+                                ContextCompat.getDrawable(itemView.context, R.drawable.ic_email)
+                        }
+                        when {
+                            numberList.size != 0 -> itemView.short_line.isVisible = true
+                        }
+                    }
+                }
             }
+            // Todo last line
         }
 
         private fun capitalize(string: String): String {
