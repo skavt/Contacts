@@ -57,6 +57,12 @@ class AppContactDetailedAdapter(
                     background = iconBackground
                 }
 
+                when {
+                    adapterPosition == numberList.size - 1 && emailList.size == 0 -> {
+                        itemView.last_line.isVisible = true
+                    }
+                }
+
                 when (adapterPosition) {
                     0 -> itemView.left_icon.apply {
                         setOnClickListener {
@@ -71,6 +77,12 @@ class AppContactDetailedAdapter(
 
                 itemView.main_text.text = email.address
                 itemView.type.text = capitalize(email.type.toString())
+
+                when {
+                    adapterPosition - numberList.size == emailList.size - 1 -> {
+                        itemView.last_line.isVisible = true
+                    }
+                }
 
                 when (adapterPosition) {
                     numberList.size -> {
@@ -87,7 +99,6 @@ class AppContactDetailedAdapter(
                     }
                 }
             }
-            // Todo last line
         }
 
         private fun capitalize(string: String): String {
