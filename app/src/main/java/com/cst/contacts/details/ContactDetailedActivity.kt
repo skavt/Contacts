@@ -30,7 +30,6 @@ class ContactDetailedActivity : AppCompatActivity() {
 
     private val colorBlue = 0xFF1A73E8.toInt()
 
-    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.contact_detailed)
