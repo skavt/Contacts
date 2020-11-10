@@ -11,7 +11,7 @@ class ContactDetailedFragment : Fragment() {
 
     /** ==== ქვედა კოდს არ ეხებით, მხოლოდ სწორ ადგილას ახდენთ გამოძახებას ==== **/
 
-    private fun getContactById(id: Long): ContactInfo? {
+    fun getContactById(id: Long): ContactInfo? {
         return Contacts.getQuery().whereEqualTo(Contact.Field.ContactId, id)
             .find().firstOrNull()?.mapToContactInfo()
     }

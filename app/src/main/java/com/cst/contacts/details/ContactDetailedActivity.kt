@@ -44,7 +44,9 @@ class ContactDetailedActivity : AppCompatActivity() {
         video_icon.isEnabled = false
         email_icon.isEnabled = false
 
-        val contactData = getContactById(intent.getStringExtra("contact_id").toString())
+        val contactData =
+            ContactDetailedFragment()
+                .getContactById(intent.getStringExtra("contact_id").toString().toLong())
         val color = intent.getStringExtra("color").toString().toInt()
 
         val iconBackground = ContextCompat.getDrawable(this, R.drawable.circle)
@@ -94,11 +96,6 @@ class ContactDetailedActivity : AppCompatActivity() {
         detailed_info.adapter =
             AppContactDetailedAdapter(contactData?.phoneNumbers as ArrayList<PhoneNumber>,
                 contactData.emails as ArrayList<Email>)
-    }
-
-    private fun getContactById(id: String): ContactInfo? {
-        return Contacts.getQuery().whereEqualTo(Contact.Field.ContactId, id)
-            .find().firstOrNull()?.mapToContactInfo()
     }
 
     private fun setIconColor(drawable: Int, color: Int): Drawable? {
